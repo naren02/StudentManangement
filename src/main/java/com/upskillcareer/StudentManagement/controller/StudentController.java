@@ -2,11 +2,14 @@ package com.upskillcareer.StudentManagement.controller;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -57,5 +60,17 @@ public class StudentController {
 	        createStudent(user);
 	       // studentRepository.save(user);
 	        return "redirect:/index";
-	    }
+	   }
+	    
+	    @PostMapping("/edit/{id}")
+	    public String EditStudent(@PathVariable(value = "id") Long id, Model model) throws Exception {
+	    	//studentRepository.deleteById(id);
+	        return "redirect:/index";
+	   }
+	    
+	    @GetMapping("/delete/{id}")
+	    public String delStudent(@PathVariable(value = "id") Long id, Model model) throws Exception {
+	    	studentRepository.deleteById(id);
+	        return "redirect:/index";
+	   }
 }

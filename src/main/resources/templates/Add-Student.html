@@ -1,23 +1,28 @@
 <html>
 <head>
-	<title>add student</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 </head>
 <body>
-	
-	<form action="#" th:action="@{/adduser}" th:object="${student}" method="post">
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Name">
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-    
-    <label for="courseName">CourseName</label>
-    <input type="text" th:field="*{courseName}" id="courseName" placeholder="CourseName">
-    <span th:if="${#fields.hasErrors('courseName')}" th:errors="*{courseName}"></span>
-    
-    <label for="emailId">Email</label>
-    <input type="text" th:field="*{emailId}" id="email" placeholder="Email">
-    <span th:if="${#fields.hasErrors('emailId')}" th:errors="*{emailId}"></span>
-    <input type="submit" value="Add Student">   
-</form>
-
+ <div class = "container">
+		<form action="#" th:action="@{/adduser}" th:object="${student}" method="post">
+		    <label for="name">Name</label>
+		    <input type="text" th:field="*{name}" id="name" placeholder="Name" class="form-control mb-4 col-4">
+		    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+		    
+		    <label for="courseName">CourseName</label>
+		    <input type="text" th:field="*{courseName}" id="courseName" placeholder="CourseName" class="form-control mb-4 col-4">
+		    <span th:if="${#fields.hasErrors('courseName')}" th:errors="*{courseName}"></span>
+		    
+		    <label for="emailId">Email</label>
+		    <input type="text" th:field="*{emailId}" id="email" placeholder="Email"class="form-control mb-4 col-4">
+		    <span th:if="${#fields.hasErrors('emailId')}" th:errors="*{emailId}"></span>
+		    <input type="submit" class="btn btn-info col-2" value="Add Student">   
+		</form>
+</div>
 </body>
 </html>
